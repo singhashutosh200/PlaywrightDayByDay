@@ -16,8 +16,15 @@ test('3rd Test Case - Verify the Presence of Section Elements in DEMOQA', async 
 
 test ('4th Test Case - Verify the current URL after clicking Elements section in DEMOQA', async ({ page }) => {
     await page.goto('https://demoqa.com/'); 
-    await page.locator('.card').filter({ hasText: 'Elements' }).click();
+    await page.locator('.card-body').filter({ hasText: 'Elements' }).click();
     await expect(page).toHaveURL('https://demoqa.com/elements');
+});
+
+test ('5th Test Case - Verify the Presence of Section Text Box in Elements Screen in DEMOQA', async ({ page }) => {
+    await page.goto('https://demoqa.com/'); 
+    await page.locator('.card-body').filter({ hasText: 'Elements' }).click();
+    await page.locator('.text').filter({ hasText: 'Text Box' }).click();
+    await expect(page).toHaveURL('https://demoqa.com/text-box');
 });
 
 // -------------------- afterEach Hook --------------------
